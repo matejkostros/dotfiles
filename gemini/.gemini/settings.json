@@ -1,0 +1,15 @@
+{
+  "theme": "Default",
+  "selectedAuthType": "vertex-ai",
+  "hideBanner": true,
+  "checkpointing": {
+    "enabled": true
+  },
+  "usageStatisticsEnabled": false,
+  "mcpServers": {
+       "kube": {
+          "command": "/Users/matej.kostros/Work/agents/.direnv/python-3.13.1/bin/python",
+          "args": ["/Users/matej.kostros/Work/agents/mcp_server.py"]
+       }
+  }
+}

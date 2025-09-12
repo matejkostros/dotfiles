@@ -1,0 +1,91 @@
+# To use this function, source this file in your shell:
+# source vhelp.src
+#
+# Then you can run the 'vhelp' command.
+
+vhelp() {
+    cat << EOF
+Nvim Help
+
+--- Basic Navigation ---
+  h, j, k, l      -> Left, Down, Up, Right
+  w, b            -> Forward/Backward by word
+  e, ge           -> Forward to end of word / Backward to end of word
+  ^, $            -> Start/End of line (0 for absolute start)
+  gg, G           -> Go to the beginning/end of the file
+  <line_number>G  -> Go to a specific line number
+  {, }            -> Jump by paragraph
+  Ctrl-o, Ctrl-i  -> Go to previous/next location in the jump list
+  Ctrl-u, Ctrl-d  -> Scroll up/down half a page
+
+--- Buffer Management ---
+  :ls             -> List all open buffers
+  :b <number/name>-> Switch to a buffer by number or partial name
+  :bd             -> Close (delete) the current buffer
+  :bnext, :bprev  -> Go to the next/previous buffer
+  :new            -> Create a new empty buffer in a horizontal split
+  :vnew           -> Create a new empty buffer in a vertical split
+  :e <file_path>  -> Open a file in the current buffer
+  :e .            -> Open the file explorer in the current directory
+
+--- Search and Replace ---
+  /pattern        -> Search forward for 'pattern'
+  ?pattern        -> Search backward for 'pattern'
+  n, N            -> Go to the next/previous occurrence
+  *               -> Search for the word under the cursor
+
+  :s/old/new/     -> Replace the first occurrence of 'old' with 'new' in the current line
+  :s/old/new/g    -> Replace all occurrences of 'old' with 'new' in the current line
+  :%s/old/new/g   -> Replace all occurrences of 'old' with 'new' in the whole file
+  :%s/old/new/gc  -> Replace with confirmation for each occurrence
+
+  Variations:
+  - Case-insensitive search: /pattern\c
+  - Case-sensitive search: /pattern\C
+  - Use different delimiters: :s#old#new#g
+  - Search for a whole word: /\<word\>
+  - Using registers:
+    - Yank a word into register 'a': "ayw
+    - Search for register content: /<C-r>a
+    - Replace with register content: :%s/old/<C-r>a/g
+
+--- Yank, Delete, and Change (Operator + Motion) ---
+  Vim commands often follow the structure: [operator][count][motion]
+  - d: delete
+  - y: yank (copy)
+  - c: change (delete and enter insert mode)
+
+  Examples (replace 'd' with 'y' to yank or 'c' to change):
+  - dw: to the beginning of the next word
+  - de: to the end of the current word
+  - d$: to the end of the line (D is a shortcut)
+  - d^: to the beginning of the line
+  - dG: to the end of the file
+  - dgg: to the beginning of the file
+  - diw: inside the current word
+  - daw: around the current word (including spaces)
+  - di": inside double quotes
+  - da": around double quotes (including quotes)
+  - dt<char>: till before the next occurrence of <char>
+  - df<char>: to the next occurrence of <char> (including the char)
+
+--- Other Useful Tips ---
+  .               -> Repeat the last change
+  u, Ctrl-r       -> Undo/Redo
+  dd              -> Delete the current line
+  yy              -> Yank (copy) the current line
+  p, P            -> Paste after/before the cursor
+  v, V, Ctrl-v    -> Visual mode (character, line, block)
+  > , <           -> Indent/Un-indent selected lines in visual mode
+  Ctrl-p, Ctrl-n  -> Autocomplete (in insert mode)
+  :! <command>    -> Execute a shell command
+  :r !<command>   -> Read the output of a command into the buffer
+  :set number     -> Show line numbers
+  :set relativenumber -> Show relative line numbers
+  :set paste      -> Enter paste mode to avoid auto-indentation issues
+  :set nopaste    -> Exit paste mode
+  q:              -> Open command-line window with history
+
+For more help, type :help in nvim.
+EOF
+}

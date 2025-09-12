@@ -20,6 +20,7 @@ $kotlin\
 $haskell\
 $python\
 [](fg:teal bg:blue)\
+$kubernetes\
 $docker_context\
 [](fg:blue bg:purple)\
 $time\
@@ -188,3 +189,9 @@ vimcmd_symbol = '[](bold fg:creen)'
 vimcmd_replace_one_symbol = '[](bold fg:purple)'
 vimcmd_replace_symbol = '[](bold fg:purple)'
 vimcmd_visual_symbol = '[](bold fg:lavender)'
+
+[kubernetes]
+disabled = false
+format = '[[ 󱃾 $context( \($namespace\))]($style)]($style)'
+symbol = "󱃾"
+style = "bg:blue fg:mantle"
