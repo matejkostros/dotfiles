@@ -1,0 +1,3 @@
+[submodule "zshrc/fzf-tab"]
+	path = zshrc/fzf-tab
+	url = https://github.com/Aloxaf/fzf-tab.git

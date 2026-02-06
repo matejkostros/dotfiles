@@ -69,6 +69,11 @@ Nvim Help
   - dt<char>: till before the next occurrence of <char>
   - df<char>: to the next occurrence of <char> (including the char)
 
+--- Diagnostics (LSP Errors/Warnings) ---
+  <leader>d       -> Open diagnostic float (show error details)
+  [d              -> Go to previous diagnostic
+  ]d              -> Go to next diagnostic
+
 --- Other Useful Tips ---
   .               -> Repeat the last change
   u, Ctrl-r       -> Undo/Redo

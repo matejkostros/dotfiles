@@ -36,6 +36,26 @@ return {
       lspconfig.lua_ls.setup({
         capabilities = capabilities
       })
+      lspconfig.pyright.setup({
+        capabilities = capabilities
+      })
+      lspconfig.terraformls.setup({
+        capabilities = capabilities
+      })
+      lspconfig.bashls.setup({
+        capabilities = capabilities
+      })
+      lspconfig.yamlls.setup({
+        capabilities = capabilities,
+        filetypes = { "yaml" },
+        settings = {
+          yaml = {
+            schemas = {
+              kubernetes = "*.yaml",
+            },
+          },
+        },
+      })
 
       vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
       vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
@@ -43,6 +63,10 @@ return {
       vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
       vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
       vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, {})
+
+      vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, {})
+      vim.keymap.set('n', ']d', vim.diagnostic.goto_next, {})
+      vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, {})
     end,
   },
 }

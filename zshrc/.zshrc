@@ -10,6 +10,10 @@ export PGHOST="/var/run/postgresql"
 export DOTFILES="$HOME/dotfiles"
 export PATH=$PATH:/usr/local/go/bin
 
+# Fix locale settings to prevent perl warnings
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 # Load system secrets
 source ~/.config/secrets.zsh
 
@@ -17,6 +21,9 @@ source ~/.config/secrets.zsh
 export GOOGLE_GENAI_USE_VERTEXAI=true
 export GOOGLE_CLOUD_PROJECT=gdevexponea
 export GOOGLE_CLOUD_LOCATION=global
+
+# Terraform related vars
+export TFE_PARALLELISM=100
 HISTFILE=~/.history
 HISTSIZE=10000
 SAVEHIST=50000
@@ -30,6 +37,9 @@ setopt inc_append_history
 # Set up fzf key bindings and fuzzy completion
 # source <(fzf --zsh)
 eval "$(fzf --zsh)"
+
+# fzf-tab plugin for fzf-powered completions
+[ -f "$DOTFILES/zshrc/fzf-tab/fzf-tab.plugin.zsh" ] && source "$DOTFILES/zshrc/fzf-tab/fzf-tab.plugin.zsh"
 
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$HOME/.local/share/omarchy/bin:$PATH"
 eval "$(~/.local/bin/mise activate zsh)"
@@ -118,10 +128,12 @@ alias vim=nvim
 
 # Standard ls aliases (using eza)
 alias ll='eza -la --group-directories-first'
+alias tree='eza --tree -la --group-directories-first'
+alias glow='glow -w 0 '
 alias la='eza -A'
 alias l='eza'
 alias ls='eza --color=auto'
-
+alias find='fdfind'
 # Useful shortcuts
 alias h='history'
 alias j='jobs -l'
@@ -139,3 +151,6 @@ alias cd..='cd ..'
 
 # Kitty Aliases
 alias clip='kitten clipboard'
+
+# export XCURSOR_SIZE=48
+# export XCURSOR_THEME="Oxygen_White"
