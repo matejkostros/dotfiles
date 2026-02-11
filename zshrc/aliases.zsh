@@ -192,6 +192,19 @@ vimhelp4() {
     printf "  \033[1;32m%9s\033[0m → %-16s   \033[1;32m%8s\033[0m → %-16s \033[1;32m%9s\033[0m → %-16s \033[1;32m%9s\033[0m → %s\n" "r" "Rebase branch" "<ldr>d" "Diff hunk" "C-w +/-" "Adjust height" ":bufdo" "Apply to all"
     printf "  \033[1;32m%9s\033[0m → %-16s   \033[1;32m%8s\033[0m → %-16s \033[1;32m%9s\033[0m → %-16s \033[1;32m%9s\033[0m → %s\n" "m" "Merge branch" "<ldr>D" "Diff (index)" "C-w >/<" "Adjust width" "dd" "Delete in picker"
 
+    echo ""
+    # Row 3: Object Operations | Text Transformations
+    printf "\033[1;33m%-31s\033[0m \033[1;33m%-31s\033[0m \033[1;33m%-31s\033[0m \033[1;33m%-31s\033[0m\n" "# Object Operations" "# Text Transformations" "" ""
+    printf "  \033[1;32m%10s\033[0m → %-16s \033[1;32m%11s\033[0m → %-17s \033[1;32m%11s\033[0m → %-16s \033[1;32m%11s\033[0m → %s\n" "d,c,y,v" "<op>" "<ldr>tl" ":TrimLeading" "" "" "" ""
+    printf "  \033[1;32m%10s\033[0m → %-16s \033[1;32m%11s\033[0m → %-17s \033[1;32m%11s\033[0m → %-16s \033[1;32m%11s\033[0m → %s\n" "<op>iw,aw" "Word" "<ldr>tt" ":TrimTrailing" "" "" "" ""
+    printf "  \033[1;32m%10s\033[0m → %-16s \033[1;32m%11s\033[0m → %-17s \033[1;32m%11s\033[0m → %-16s \033[1;32m%11s\033[0m → %s\n" "<op>i{,a{" "Braces" "<ldr>ta" ":TrimAll" "" "" "" ""
+    printf "  \033[1;32m%10s\033[0m → %-16s \033[1;32m%11s\033[0m → %-17s \033[1;32m%11s\033[0m → %-16s \033[1;32m%11s\033[0m → %s\n" "<op>i[,a[" "Brackets" "<ldr>cs" ":CollapseSpaces" "" "" "" ""
+    printf "  \033[1;32m%10s\033[0m → %-16s \033[1;32m%11s\033[0m → %-17s \033[1;32m%11s\033[0m → %-16s \033[1;32m%11s\033[0m → %s\n" "<op>i(,a(" "Parens" "<ldr>uc" ":ToUpperCase" "" "" "" ""
+    printf "  \033[1;32m%10s\033[0m → %-16s \033[1;32m%11s\033[0m → %-17s \033[1;32m%11s\033[0m → %-16s \033[1;32m%11s\033[0m → %s\n" "<op>i\",a\"" "Quotes" "<ldr>lc" ":ToLowerCase" "" "" "" ""
+    printf "  \033[1;32m%10s\033[0m → %-16s \033[1;32m%11s\033[0m → %-17s \033[1;32m%11s\033[0m → %-16s \033[1;32m%11s\033[0m → %s\n" "<op>ip,ap" "Paragraph" "<ldr>tq" ":ToggleQuotes" "" "" "" ""
+    printf "  \033[1;32m%10s\033[0m → %-16s \033[1;32m%11s\033[0m → %-17s \033[1;32m%11s\033[0m → %-16s \033[1;32m%11s\033[0m → %s\n" "<op>is,as" "Sentence" "<ldr>b64e" ":Base64Encode" "" "" "" ""
+    printf "  \033[1;32m%10s\033[0m → %-16s \033[1;32m%11s\033[0m → %-17s \033[1;32m%11s\033[0m → %-16s \033[1;32m%11s\033[0m → %s\n" "<op>it,at" "HTML/XML tags" "<ldr>b64d" ":Base64Decode" "" "" "" ""
+
     echo -e "\n\033[1;34mTip:\033[0m Run \033[1;32mvimhelp4\033[0m anytime to see this message again.\n"
 }
 
