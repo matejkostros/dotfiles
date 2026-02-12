@@ -1,0 +1,239 @@
+vimhelp:
+  title: "📝 Neovim Help"
+  footer: "Tip: Run vimhelp anytime to see this message again."
+  sections:
+    "File Discovery":
+      "-": "Open dir explorer"
+      "Ctrl-p": "Fuzzy find files"
+      "Ctrl-n": "Toggle explorer"
+      "<ldr>fg": "Grep search"
+      "<ldr><ldr>": "Recent files"
+      "j,k": "Navigate tree"
+      "<ldr>fb": "Buffer list"
+      "l,h,Enter": "Open/expand"
+
+    "Navigation & LSP":
+      "Ctrl-o": "Jump back"
+      "Ctrl-i": "Jump forward"
+      "<ldr>gd": "Go to definition"
+      "<ldr>gr": "Find references"
+      "K": "Hover info"
+      "<ldr>rn": "Rename references"
+      "<ldr>ca": "Code action"
+      "]d/[d": "Next/Prev error"
+
+    "Editing Workflow":
+      "dw,de,d$": "Delete word"
+      "cw,ce,c$": "Change word"
+      "gcc": "Toggle comment"
+      "gc{motion}": "Comment block"
+      "yy,dd": "Yank/Delete"
+      "p,P": "Paste"
+      "u,Ctrl-r": "Undo/Redo"
+      ":%s/old/new/g": "Replace all"
+
+    "Editing Workflow 2":
+      "<num>G": "Go to line"
+      "{,}": "Jump paragraph"
+      "Ctrl-u/d": "Scroll up/down"
+      "*": "Search word"
+      ">,<": "Indent"
+      ":s/old/new/": "Replace line"
+      ":%s/old/new/g": "Replace all"
+      "J": "Join lines"
+
+    "Lazygit":
+      "<ldr>lg": "Open lazygit"
+      "c": "Commit"
+      "p": "Push"
+      "P": "Pull"
+      "l": "View log"
+      "e": "Edit commit"
+      "b": "Browse commit"
+      "r": "Rebase branch"
+      "m": "Merge branch"
+
+    "Gitsigns":
+      "<ldr>a": "Stage hunk"
+      "<ldr>u": "Unstage hunk"
+      "<ldr>r": "Reset hunk"
+      "<ldr>n": "Next hunk"
+      "<ldr>p": "Prev hunk"
+      "<ldr>A": "Stage buffer"
+      "<ldr>R": "Reset buffer"
+      "<ldr>d": "Diff hunk"
+      "<ldr>D": "Diff (index)"
+
+    "Split Management":
+      ":split": "Horizontal split"
+      ":vsplit": "Vertical split"
+      "C-h/j/k/l": "Navigate between"
+      "C-w r/R": "Rotate splits"
+      "C-w c": "Close split"
+      "C-w o": "Close other"
+      "C-w =": "Equal size"
+      "C-w +/-": "Adjust height"
+      "C-w >/<": "Adjust width"
+
+    "Buffer Management":
+      "<ldr>fb": "Browse buffers"
+      "<ldr>bn": "Next buffer"
+      "<ldr>bp": "Prev buffer"
+      "<ldr>bd": "Delete buffer"
+      "<ldr>sf": "Scratch toggle"
+      "<ldr>nb": "New buffer"
+      "<ldr>b#": "Alternate buffer"
+      ":bufdo": "Apply to all"
+      "dd": "Delete in picker"
+
+    "Object Operations":
+      "d,c,y,v": "<op>"
+      "<op>iw,aw": "Word"
+      "<op>i{,a{": "Braces"
+      "<op>i[,a[": "Brackets"
+      "<op>i(,a(": "Parens"
+      "<op>i\",a\"": "Quotes"
+      "<op>ip,ap": "Paragraph"
+      "<op>is,as": "Sentence"
+      "<op>it,at": "HTML/XML tags"
+
+    "Text Transformations":
+      "<ldr>tl": ":TrimLeading"
+      "<ldr>tt": ":TrimTrailing"
+      "<ldr>ta": ":TrimAll"
+      "<ldr>cs": ":CollapseSpaces"
+      "<ldr>uc": ":ToUpperCase"
+      "<ldr>lc": ":ToLowerCase"
+      "<ldr>tq": ":ToggleQuotes"
+      "<ldr>b64e": ":Base64Encode"
+      "<ldr>b64d": ":Base64Decode"
+
+khelp:
+  title: "☸️  Kubernetes Aliases"
+  footer: "Tip: Run khelp anytime to see this message again."
+  sections:
+    "General":
+      "k": "k"
+      "kg": "k get"
+      "kd": "k describe"
+      "kl": "k logs"
+      "klf": "k logs -f"
+      "ke": "k exec -it"
+      "ka": "k apply -f"
+      "kdf": "k delete -f"
+
+    "Context":
+      "kcg": "k config get-contexts"
+      "kcc": "k config current-context"
+      "kcu": "k config use-context"
+      "": ""
+      "": ""
+      "": ""
+      "": ""
+      "": ""
+      "": ""
+
+    "Get Resources":
+      "kgp": "pods"
+      "kpw": "pods (wide)"
+      "kpa": "pods (-A)"
+      "kgs": "services"
+      "ksw": "services (wide)"
+      "ksa": "services (-A)"
+      "kgd": "deployments"
+      "kda": "deployments (-A)"
+      "kgn": "nodes"
+
+kitty_help:
+  title: "^..^ Kitty Keybindings"
+  footer: "Tip: Run kitty_help anytime to see this message again."
+  notes:
+    - "Layouts: Fat, Grid, Horizontal, Splits, Stack, Tall, Vertical"
+  sections:
+    "Tabs":
+      "C+S+t": "New tab"
+      "C+S+q": "Close tab"
+      "C+S+right/left": "Next/Prev tab"
+      "C+S+./,": "Move tab"
+      "C+S+A+t": "Set tab title"
+      "Sup+S+1..9": "Switch to tab"
+      "C+S+l": "Next layout"
+      "": ""
+      "": ""
+
+    "Windows":
+      "C+S+enter": "New window"
+      "C+S+w": "Close window"
+      "C+S+]/[": "Next/Prev window"
+      "C+S+f/b": "Move window"
+      "C+S+1..0": "Focus window"
+      "C+S+n": "New OS window"
+      "": ""
+      "": ""
+      "": ""
+
+    "Scrolling":
+      "C+S+up/down": "Line scroll"
+      "C+S+pageup/down": "Page scroll"
+      "C+S+home/end": "Top/Bottom"
+      "C+S+h": "Show scrollback"
+      "C+S+p>f": "Show last cmd"
+      "": ""
+      "": ""
+      "": ""
+      "": ""
+
+    "Clipboard & Utils":
+      "C+S+c/v": "Copy/Paste"
+      "C+S+s": "Paste from selection"
+      "C+S+o": "Pass to program"
+      "C+S+e": "Open URL"
+      "C+S+u": "Input Unicode"
+      "": ""
+      "": ""
+      "": ""
+      "": ""
+
+    "Font & Display":
+      "C+S+=/−": "Font size"
+      "C+S+backsp": "Reset font"
+      "C+S+f11": "Fullscreen"
+      "C+S+f10": "Toggle max"
+      "C+S+r": "Resize window"
+      "": ""
+      "": ""
+      "": ""
+      "": ""
+
+    "System & Config":
+      "C+S+f1": "Show help"
+      "C+S+f2": "Edit config"
+      "C+S+f5": "Reload config"
+      "C+S+f6": "Debug config"
+      "C+S+delete": "Reset terminal"
+      "C+S+escape": "Kitty shell"
+      "": ""
+      "": ""
+      "": ""
+
+    "Transparency":
+      "C+S+a>m": "More transparent"
+      "C+S+a>l": "Less transparent"
+      "C+S+a>1": "Full opacity"
+      "C+S+a>d": "Default opacity"
+      "": ""
+      "": ""
+      "": ""
+      "": ""
+      "": ""
+
+    "Splits":
+      "C+S+;": "Create split"
+      "C+S+'": "Next split"
+      "C+S+A+;": "Close split"
+      "": ""
+      "": ""
+      "": ""
+      "": ""
+      "": ""
+      "": ""
