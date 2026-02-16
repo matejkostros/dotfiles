@@ -108,6 +108,17 @@ vimhelp:
       "<ldr>b64e": ":Base64Encode"
       "<ldr>b64d": ":Base64Decode"
 
+    "Yank":
+      "<ldr>yr": "Yank Relative path"
+      "<ldr>yf": "Yank Filename"
+      "<ldr>yp": "Yank Abs path"
+      "<ldr>yb": "Yank Branch"
+      "<ldr>yc": "Yank Commit hash"
+      "<ldr>yg": "Yank Git remote"
+      "<ldr>yl": "Yank Line number"
+      "<ldr>ye": "Yank Error msg"
+      "<ldr>yh": "Yank Hunk"
+
 khelp:
   title: "☸️  Kubernetes Aliases"
   footer: "Tip: Run khelp anytime to see this message again."

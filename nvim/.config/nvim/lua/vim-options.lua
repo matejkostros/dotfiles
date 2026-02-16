@@ -153,3 +153,113 @@ vim.keymap.set('v', '<leader>lc', ':ToLowerCase<CR>', { noremap = true })
 vim.keymap.set('v', '<leader>tq', ':ToggleQuotes<CR>', { noremap = true })
 vim.keymap.set('v', '<leader>b64e', ':Base64Encode<CR>', { noremap = true })
 vim.keymap.set('v', '<leader>b64d', ':Base64Decode<CR>', { noremap = true })
+
+-- Yank commands
+local function yank_relative_path()
+  local file = vim.fn.expand("%:p")
+  local git_root = vim.fn.system("git rev-parse --show-toplevel 2>/dev/null"):gsub("\n", "")
+  local path
+  if vim.v.shell_error == 0 then
+    path = file:gsub("^" .. vim.pesc(git_root) .. "/", "")
+  else
+    path = file
+  end
+  vim.fn.setreg("+", path)
+  vim.notify("Yanked: " .. path)
+end
+
+local function yank_filename()
+  local filename = vim.fn.expand("%:t")
+  vim.fn.setreg("+", filename)
+  vim.notify("Yanked: " .. filename)
+end
+
+local function yank_absolute_path()
+  local path = vim.fn.expand("%:p")
+  vim.fn.setreg("+", path)
+  vim.notify("Yanked: " .. path)
+end
+
+local function yank_branch()
+  local branch = vim.fn.system("git rev-parse --abbrev-ref HEAD 2>/dev/null"):gsub("\n", "")
+  if vim.v.shell_error == 0 then
+    vim.fn.setreg("+", branch)
+    vim.notify("Yanked: " .. branch)
+  else
+    vim.notify("Not in a git repository")
+  end
+end
+
+local function yank_commit_hash()
+  local hash = vim.fn.system("git rev-parse --short HEAD 2>/dev/null"):gsub("\n", "")
+  if vim.v.shell_error == 0 then
+    vim.fn.setreg("+", hash)
+    vim.notify("Yanked: " .. hash)
+  else
+    vim.notify("Not in a git repository")
+  end
+end
+
+local function yank_git_remote()
+  local remote = vim.fn.system("git config --get remote.origin.url 2>/dev/null"):gsub("\n", "")
+  if vim.v.shell_error == 0 then
+    vim.fn.setreg("+", remote)
+    vim.notify("Yanked: " .. remote)
+  else
+    vim.notify("No git remote found")
+  end
+end
+
+local function yank_line_number()
+  local line = vim.fn.line(".")
+  vim.fn.setreg("+", tostring(line))
+  vim.notify("Yanked: " .. line)
+end
+
+local function yank_error_message()
+  local diagnostics = vim.diagnostic.get(0, {})
+  if #diagnostics > 0 then
+    local error = diagnostics[1]
+    vim.fn.setreg("+", error.message)
+    vim.notify("Yanked: " .. error.message)
+  else
+    vim.notify("No diagnostics found")
+  end
+end
+
+local function yank_hunk()
+  -- Uses gitsigns if available, otherwise fallback message
+  if package.loaded["gitsigns"] then
+    local hunk = vim.fn.system("git diff -U0 HEAD -- " .. vim.fn.expand("%") .. " 2>/dev/null | grep -A 999 '^@@' | head -1"):gsub("\n", "")
+    if hunk ~= "" then
+      vim.fn.setreg("+", hunk)
+      vim.notify("Yanked hunk info")
+    else
+      vim.notify("No git hunk found")
+    end
+  else
+    vim.notify("Gitsigns not loaded")
+  end
+end
+
+-- Create user commands for yank operations
+vim.api.nvim_create_user_command('YankRelativePath', yank_relative_path, {})
+vim.api.nvim_create_user_command('YankFilename', yank_filename, {})
+vim.api.nvim_create_user_command('YankAbsolutePath', yank_absolute_path, {})
+vim.api.nvim_create_user_command('YankBranch', yank_branch, {})
+vim.api.nvim_create_user_command('YankCommitHash', yank_commit_hash, {})
+vim.api.nvim_create_user_command('YankGitRemote', yank_git_remote, {})
+vim.api.nvim_create_user_command('YankLineNumber', yank_line_number, {})
+vim.api.nvim_create_user_command('YankErrorMessage', yank_error_message, {})
+vim.api.nvim_create_user_command('YankHunk', yank_hunk, {})
+
+-- Keymaps for yank operations
+vim.keymap.set('n', '<leader>yr', ':YankRelativePath<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>yf', ':YankFilename<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>yp', ':YankAbsolutePath<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>yb', ':YankBranch<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>yc', ':YankCommitHash<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>yg', ':YankGitRemote<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>yl', ':YankLineNumber<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>ye', ':YankErrorMessage<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>yh', ':YankHunk<CR>', { noremap = true })
