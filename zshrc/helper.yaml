@@ -144,6 +144,65 @@ khelp:
       "kda": "deployments (-A)"
       "kgn": "nodes"
 
+cloudhelp:
+  title: "☁️  Cloud & Kubernetes Helpers"
+  footer: "Tip: Run cloudhelp anytime to see this message again."
+  sections:
+    "GCP Auth & Project":
+      "gal": "Auth login"
+      "gproj": "Select GCP project"
+      "gsa": "Select Service Acct"
+      "giamroles": "List IAM roles"
+      "gvpc": "Select VPC"
+      "gsubnet": "Select subnet"
+      "gssh": "SSH to instance"
+      "ggke": "Connect to GKE"
+      "": ""
+
+    "GKE Cluster Mgmt":
+      "gkec": "Create cluster"
+      "gkeg": "Get credentials"
+      "gkel": "List clusters"
+      "gked": "Delete cluster"
+      "gkedesc": "Describe cluster"
+      "gker": "Resize cluster"
+      "kctx": "Select k8s context"
+      "": ""
+      "": ""
+
+    "kubectl General":
+      "k": "kubectl"
+      "kg": "get"
+      "kd": "describe"
+      "kl": "logs"
+      "klf": "logs -f"
+      "ke": "exec -it"
+      "ka": "apply -f"
+      "kdf": "delete -f"
+      "kgn": "get nodes"
+
+    "kubectl Resources":
+      "kgp": "pods"
+      "kpw": "pods (wide)"
+      "kpa": "pods (-A)"
+      "kgs": "services"
+      "ksw": "services (wide)"
+      "ksa": "services (-A)"
+      "kgd": "deployments"
+      "kda": "deployments (-A)"
+      "kns": "namespaces"
+
+    "kubectl Config":
+      "kcg": "get-contexts"
+      "kcc": "current-context"
+      "kcu": "use-context"
+      "k explain": "Explain resource"
+      "k patch": "Patch resource"
+      "k edit": "Edit resource"
+      "k top": "Resource usage"
+      "k port-forward": "Port forward"
+      "k create": "Create from file"
+
 kitty_help:
   title: "^..^ Kitty Keybindings"
   footer: "Tip: Run kitty_help anytime to see this message again."

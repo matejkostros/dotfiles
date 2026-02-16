@@ -106,6 +106,10 @@ def calculate_layout(sections: List[Tuple[str, List[Tuple[str, str]]]], term_wid
 
     # Try column configurations from most to least
     # Dynamically allocate desc_width based on available space
+    # Require minimum column width and description width for readability
+    MIN_DESC_WIDTH = 10
+    MIN_COL_WIDTH = 30
+
     for num_cols in [4, 3, 2, 1]:
         gaps = (num_cols - 1) * 2  # 2 spaces between columns
 
@@ -116,9 +120,9 @@ def calculate_layout(sections: List[Tuple[str, List[Tuple[str, str]]]], term_wid
         arrow_width = 3  # " → "
         potential_desc_width = available_per_col - cmd_width - arrow_width
 
-        # If this configuration can fit, use it
-        if potential_desc_width > 0:
-            desc_width = max(1, potential_desc_width)
+        # Only use this configuration if both column width and desc_width are reasonable
+        if available_per_col >= MIN_COL_WIDTH and potential_desc_width >= MIN_DESC_WIDTH:
+            desc_width = potential_desc_width
             col_width = available_per_col
             return num_cols, cmd_width, desc_width, col_width
 

@@ -33,6 +33,8 @@ alias kda='kubectl get deployments --all-namespaces'
 
 # Universal Help System - Python-based with auto grid generation
 alias khelp="python3 $HOME/dotfiles/zshrc/helper.py khelp"
+alias cloudhelp="python3 $HOME/dotfiles/zshrc/helper.py cloudhelp"
+alias ghelp="python3 $HOME/dotfiles/zshrc/helper.py cloudhelp"
 alias vimhelp="python3 $HOME/dotfiles/zshrc/helper.py vimhelp"
 alias vimhelp2="python3 $HOME/dotfiles/zshrc/helper.py vimhelp"
 alias vimhelp3="python3 $HOME/dotfiles/zshrc/helper.py vimhelp"
