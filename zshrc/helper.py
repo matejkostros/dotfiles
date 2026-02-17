@@ -110,7 +110,11 @@ def calculate_layout(sections: List[Tuple[str, List[Tuple[str, str]]]], term_wid
     MIN_DESC_WIDTH = 10
     MIN_COL_WIDTH = 30
 
-    for num_cols in [4, 3, 2, 1]:
+    # Calculate maximum possible columns based on terminal width
+    max_possible_cols = max(1, (term_width - 10) // (MIN_COL_WIDTH + 2))
+    col_options = list(range(max_possible_cols, 0, -1))
+
+    for num_cols in col_options:
         gaps = (num_cols - 1) * 2  # 2 spaces between columns
 
         # Available space per column
