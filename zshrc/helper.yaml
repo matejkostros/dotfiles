@@ -218,7 +218,9 @@ kitty_help:
   title: "^..^ Kitty Keybindings"
   footer: "Tip: Run kitty_help anytime to see this message again."
   notes:
-    - "Layouts: Fat, Grid, Horizontal, Splits, Stack, Tall, Vertical"
+    - "Layouts: Stack, Tall, Fat, Grid, Horizontal, Vertical, Splits"
+    - "Custom layouts: Use F7 (Splits) to arrange panes, then: map C+S+s save_as_session --use-foreground-process --relocatable"
+    - "Restore session: kitty --session /path/to/session.conf (recreates exact arrangement with programs running)"
   sections:
     "Tabs":
       "C+S+t": "New tab"
@@ -227,7 +229,7 @@ kitty_help:
       "C+S+./,": "Move tab"
       "C+S+A+t": "Set tab title"
       "Sup+S+1..9": "Switch to tab"
-      "C+S+l": "Next layout"
+      "C+S+l": "Cycle layouts"
       "": ""
       "": ""
 
@@ -235,11 +237,11 @@ kitty_help:
       "C+S+enter": "New window"
       "C+S+w": "Close window"
       "C+S+]/[": "Next/Prev window"
-      "C+S+f/b": "Move window"
+      "C+S+f/b": "Move forward/back"
       "C+S+1..0": "Focus window"
+      "C+S+f7": "Visual select"
+      "C+S+f8": "Swap windows"
       "C+S+n": "New OS window"
-      "": ""
-      "": ""
       "": ""
 
     "Scrolling":
@@ -247,15 +249,15 @@ kitty_help:
       "C+S+pageup/down": "Page scroll"
       "C+S+home/end": "Top/Bottom"
       "C+S+h": "Show scrollback"
+      "C+S+/": "Search scrollback"
+      "C+S+z/x": "Shell prompts"
       "C+S+p>f": "Show last cmd"
-      "": ""
-      "": ""
       "": ""
       "": ""
 
     "Clipboard & Utils":
       "C+S+c/v": "Copy/Paste"
-      "C+S+s": "Paste from selection"
+      "C+S+s": "Paste selection"
       "C+S+o": "Pass to program"
       "C+S+e": "Open URL"
       "C+S+u": "Input Unicode"
@@ -286,24 +288,24 @@ kitty_help:
       "": ""
       "": ""
 
-    "Transparency":
-      "C+S+a>m": "More transparent"
-      "C+S+a>l": "Less transparent"
-      "C+S+a>1": "Full opacity"
-      "C+S+a>d": "Default opacity"
-      "": ""
-      "": ""
-      "": ""
-      "": ""
-      "": ""
+    "Layout Control":
+      "F1": "Stack (max one)"
+      "F2": "Tall (left focus)"
+      "F3": "Fat (top focus)"
+      "F4": "Grid (equal)"
+      "F5": "Horizontal (side)"
+      "F6": "Vertical (stack)"
+      "F7": "Splits (custom)"
+      "C+S+l": "Cycle layouts"
+      "C+S+f6": "Show config"
 
-    "Splits":
+    "Pane Control":
       "C+S+;": "Create split"
       "C+S+'": "Next split"
       "C+S+A+;": "Close split"
-      "": ""
-      "": ""
-      "": ""
-      "": ""
+      "C+S+a>l": "More opaque"
+      "C+S+a>m": "More transparent"
+      "C+S+a>1": "Full opaque"
+      "C+S+a>d": "Default opacity"
       "": ""
       "": ""
