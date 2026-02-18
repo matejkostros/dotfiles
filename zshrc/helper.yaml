@@ -9,18 +9,31 @@ vimhelp:
       "<ldr>fg": "Grep search"
       "<ldr><ldr>": "Recent files"
       "j,k": "Navigate tree"
-      "<ldr>fb": "Buffer list"
       "l,h,Enter": "Open/expand"
+      "gf": "File at cursor"
+      "<ldr>fo": "Old files (recent)"
 
-    "Navigation & LSP":
+    "Insert & Navigate":
+      "i,I": "Insert / line start"
+      "a,A": "Append / at line end"
+      "o,O": "New line below/above"
+      "ea": "Append end of word"
+      "s,S": "Subst char/line"
+      "w,b,e": "Word fwd/back/end"
+      "0,$,^": "Line start/end/first"
       "Ctrl-o": "Jump back"
       "Ctrl-i": "Jump forward"
+
+    "Navigation & LSP":
       "<ldr>gd": "Go to definition"
       "<ldr>gr": "Find references"
       "K": "Hover info"
       "<ldr>rn": "Rename references"
       "<ldr>ca": "Code action"
       "]d/[d": "Next/Prev error"
+      "gl": "Show line diagnostic"
+      "<ldr>ds": "Document symbols"
+      "<ldr>f": "Format buffer"
 
     "Editing Workflow":
       "dw,de,d$": "Delete word"
@@ -30,7 +43,6 @@ vimhelp:
       "yy,dd": "Yank/Delete"
       "p,P": "Paste"
       "u,Ctrl-r": "Undo/Redo"
-      ":%s/old/new/g": "Replace all"
 
     "Editing Workflow 2":
       "<num>G": "Go to line"
