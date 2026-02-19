@@ -41,6 +41,9 @@ eval "$(fzf --zsh)"
 # fzf-tab plugin for fzf-powered completions
 [ -f "$DOTFILES/zshrc/fzf-tab/fzf-tab.plugin.zsh" ] && source "$DOTFILES/zshrc/fzf-tab/fzf-tab.plugin.zsh"
 
+# zsh-autosuggestions plugin for history-based suggestions
+[ -f "$DOTFILES/zshrc/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && source "$DOTFILES/zshrc/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
 export PATH="${ASDF_DATA_DIR:-$HOME/.asdf}/shims:$HOME/.local/share/omarchy/bin:$PATH"
 eval "$(~/.local/bin/mise activate zsh)"
 

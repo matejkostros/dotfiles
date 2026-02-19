@@ -1,3 +1,6 @@
 [submodule "zshrc/fzf-tab"]
 	path = zshrc/fzf-tab
 	url = https://github.com/Aloxaf/fzf-tab.git
+[submodule "zshrc/zsh-autosuggestions"]
+	path = zshrc/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
