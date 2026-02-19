@@ -101,37 +101,57 @@ end
 
 -- Helper function to apply operation to range
 local function apply_operation(func)
-  return function()
-    local start_line = vim.fn.line("'<")
-    local end_line = vim.fn.line("'>")
+  return function(opts)
+    local vmode = vim.fn.visualmode()
 
-    if vim.fn.visualmode() ~= "" then
-      local lines = vim.fn.getline(start_line, end_line)
-      if type(lines) == "string" then lines = {lines} end
+    -- Handle all visual modes (character, line, block)
+    if vmode ~= "" then
+      local reg_type_map = { v = 'c', V = 'l', ['\22'] = 'b' }
+      local reg_type = reg_type_map[vmode]
+
+      vim.cmd("normal! gvy") -- Yank the selection
+      local lines = vim.fn.getreg('"', false, true) -- Get register content as a list of lines
 
       for i, line in ipairs(lines) do
         lines[i] = func(line)
       end
 
-      vim.fn.setline(start_line, lines)
-    else
-      local line = vim.fn.getline(".")
-      local new_line = func(line)
-      vim.fn.setline(".", new_line)
+      vim.fn.setreg('"', lines, reg_type) -- Set register with transformed lines, preserving type
+      vim.cmd("normal! gvp") -- Paste over the selection
+      return
     end
+
+    -- The rest of the logic for command-range (:%), or current line
+    local start_line, end_line
+    if opts.range == true then
+      start_line = opts.line1
+      end_line = opts.line2
+    else -- Fallback to current line
+      start_line = vim.fn.line(".")
+      end_line = vim.fn.line(".")
+    end
+
+    local lines_to_change = vim.fn.getline(start_line, end_line)
+    if type(lines_to_change) == "string" then lines_to_change = {lines_to_change} end
+
+    for i, line in ipairs(lines_to_change) do
+      lines_to_change[i] = func(line)
+    end
+
+    vim.fn.setline(start_line, lines_to_change)
   end
 end
 
 -- Create user commands
-vim.api.nvim_create_user_command('TrimLeading', apply_operation(trim_leading), {})
-vim.api.nvim_create_user_command('TrimTrailing', apply_operation(trim_trailing), {})
-vim.api.nvim_create_user_command('TrimAll', apply_operation(trim_all), {})
-vim.api.nvim_create_user_command('CollapseSpaces', apply_operation(collapse_spaces), {})
-vim.api.nvim_create_user_command('ToUpperCase', apply_operation(to_uppercase), {})
-vim.api.nvim_create_user_command('ToLowerCase', apply_operation(to_lowercase), {})
-vim.api.nvim_create_user_command('ToggleQuotes', apply_operation(toggle_quotes), {})
-vim.api.nvim_create_user_command('Base64Encode', apply_operation(base64_encode), {})
-vim.api.nvim_create_user_command('Base64Decode', apply_operation(base64_decode), {})
+vim.api.nvim_create_user_command('TrimLeading', apply_operation(trim_leading), { range = true })
+vim.api.nvim_create_user_command('TrimTrailing', apply_operation(trim_trailing), { range = true })
+vim.api.nvim_create_user_command('TrimAll', apply_operation(trim_all), { range = true })
+vim.api.nvim_create_user_command('CollapseSpaces', apply_operation(collapse_spaces), { range = true })
+vim.api.nvim_create_user_command('ToUpperCase', apply_operation(to_uppercase), { range = true })
+vim.api.nvim_create_user_command('ToLowerCase', apply_operation(to_lowercase), { range = true })
+vim.api.nvim_create_user_command('ToggleQuotes', apply_operation(toggle_quotes), { range = true })
+vim.api.nvim_create_user_command('Base64Encode', apply_operation(base64_encode), { range = true })
+vim.api.nvim_create_user_command('Base64Decode', apply_operation(base64_decode), { range = true })
 
 -- Keymaps for normal and visual mode
 vim.keymap.set('n', '<leader>tl', ':TrimLeading<CR>', { noremap = true })
